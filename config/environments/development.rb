@@ -25,14 +25,20 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
   end
 
+  # CONFIGUR Change to "debug" to log everything (including potentially personally-identifiable information!)
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # CONFIGUR send email via the 'resend' API, not smtp
+  config.action_mailer.delivery_method = :resend
+  
+  # CONFIGUR Do care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false

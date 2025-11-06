@@ -1,3 +1,4 @@
+# CONFIGUR setup the migration
 class InitSolidQueue < ActiveRecord::Migration[8.0]
   def change
     create_table "solid_queue_blocked_executions", force: :cascade do |t|

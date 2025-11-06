@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   # ATTENTION Active Storage setup
   # 1. BEFORE : install Active Storage tables
   #      bin/rails active_storage:install + db:migrate
-  # 2. connect Active Storage to views
+  # CONFIGUR 2. connect Active Storage to views
 include ActiveStorage::SetCurrent
 end

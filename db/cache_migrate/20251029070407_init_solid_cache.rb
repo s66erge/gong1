@@ -1,3 +1,4 @@
+# CONFIGUR setup the migration
 class InitSolidCache < ActiveRecord::Migration[8.0]
   def change
     create_table "solid_cache_entries", force: :cascade do |t|

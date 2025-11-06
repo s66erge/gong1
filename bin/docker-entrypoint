@@ -1,8 +1,11 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+# CONFIGUR If running the rails server then create or migrate existing database
+# if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+if [[ "$*" == *"rails server"* ]] || [[ "$*" == *"bin/rails server"* ]]; then
+  echo "Running database setup for all databases..."
   ./bin/rails db:prepare
+  echo "Running database setup complete"
 fi
 
 exec "${@}"
