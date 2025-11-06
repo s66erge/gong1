@@ -74,5 +74,5 @@ group :test do
 end
 
 # Send email with resend API [https://resend.com/docs/send-with-rails#1-install]
-gem "resend", "~> 0.6.0"
+gem "resend", "~> 1.0.0"
 gem "csv", "~> 3.1"
