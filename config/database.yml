@@ -21,8 +21,9 @@ test:
   database: storage/test.sqlite3
 
 
-# Store production database in the storage/ directory, which by default
-# is mounted as a persistent Docker volume in config/deploy.yml.
+# CONFIGUR put all gong1 production database in the /data/storage directory,
+# which is a Railway permanent storage volume.
+# And make sure rails:rails is the ownner of all /data/* files and directories. 
 production:
   primary:
     <<: *default
