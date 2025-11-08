@@ -3,6 +3,8 @@
 # CONFIGUR If running the rails server then create or migrate existing database
 # if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
 if [[ "$*" == *"rails server"* ]] || [[ "$*" == *"bin/rails server"* ]]; then
+  echo "Run SolidQueue"
+  bundle exec rake solid_queue:start &
   echo "Running database setup for all databases..."
   ./bin/rails db:prepare
   echo "Database setup complete."
