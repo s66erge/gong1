@@ -5,7 +5,8 @@
 if [[ "$*" == *"rails server"* ]] || [[ "$*" == *"bin/rails server"* ]]; then
   echo "Running database setup for all databases..."
   ./bin/rails db:prepare
-  echo "Running database setup complete"
+  echo "Starting the SolidQueue supervisor"
+  ./bin/start-queue
 fi
 
 exec "${@}"
