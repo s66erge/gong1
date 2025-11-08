@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Find process IDs where the command contains 'supervisor'
+pids=$(ps aux | grep supervisor | grep -v grep | awk '{print $2}')
+
+# Check if any such processes found
+if [ -z "$pids" ]; then
+  echo "No process containing 'supervisor' found."
+  exit 0
+fi
+
+# Send TERM signal to each PID
+for pid in $pids; do
+  echo "Sending TERM to process $pid"
+  kill -TERM $pid
+done
